@@ -1,0 +1,29 @@
+#security-extension-sus-site-popup {
+    width : 500px;
+    height : auto;
+    padding : 25px 50px;
+    background-color : #FFFFFF;
+    box-shadow : 3px 3px 5px #000000;
+    position : fixed;
+    top : 200px;
+    left : calc(50vw - 350px);
+    z-index : 10000;
+    color : #000000;
+}
+#security-extension-sus-site-popup-options {
+    display : flex;
+    flex-direction : row;
+    align-items : space-between;
+    justify-content : space-between;
+}
+#security-extension-sus-site-popup:before {
+    content : "";
+    position : fixed;
+    display : block;
+    top : 0;
+    left : 0;
+    width : 100vw;
+    height : 100vh;
+    background-color : transparent;
+    z-index : -10;
+}
