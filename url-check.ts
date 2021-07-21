@@ -1,5 +1,5 @@
 const trustableExtensions:string[] = [
-    "com",
+    "com", 
     "co",
     "org",
     "net",
