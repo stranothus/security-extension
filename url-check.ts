@@ -1,9 +1,3 @@
-const url:string = window.location.href;
-const noHTTP:string = url.replace(/^[^:]+:\/\//g, "").replace(/www\./g, "");
-const paths:string[] = noHTTP.split("/");
-const root:string = paths[0];
-const domainExtension:string = root.split(".").reverse()[0];
-
 const trustableExtensions:string[] = [
     "com",
     "co",
@@ -12,7 +6,7 @@ const trustableExtensions:string[] = [
     "us"
 ];
 
-if((localStorage.getItem("security-safe") ? !JSON.parse(localStorage.getItem("security-safe")) : false)) {
+if((localStorage.getItem("security-safe") ? !JSON.parse(localStorage.getItem("security-safe") || "false") : false)) {
     let popup:HTMLElement = document.createElement("div");
 
     popup.innerHTML = `
@@ -29,7 +23,7 @@ if((localStorage.getItem("security-safe") ? !JSON.parse(localStorage.getItem("se
     popup.id = "security-extension-sus-site-popup";
 
     document.body.appendChild(popup);
-} else if(trustableExtensions.indexOf(domainExtension) === -1 && !(localStorage.getItem("security-safe") ? JSON.parse(localStorage.getItem("security-safe")) : false)) {
+} else if(trustableExtensions.indexOf(domainExtension) === -1 && !(localStorage.getItem("security-safe") ? JSON.parse(localStorage.getItem("security-safe") || "false") : false)) {
     let popup:HTMLElement = document.createElement("div");
 
     popup.innerHTML = `
