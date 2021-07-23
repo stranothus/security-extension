@@ -8,7 +8,7 @@ function addRickRoll() {
         
         //access saved Rick Rolls
         chrome.storage.sync.get(["Rick Rolls"], function(result:any):void {
-            let rickRolls:string = result["Rick Rolls"].replace(url || "", "") || "https://www.youtube.com/watch?v=iik25wqIuFo";//store the saved Rick Rolls. If there are none saved yet, set to the most common. Remove any previous mentions of the current URL to maximize storage
+            let rickRolls:string = (result["Rick Rolls"] || "").replace(url || "", "") || "https://www.youtube.com/watch?v=iik25wqIuFo";//store the saved Rick Rolls. If there are none saved yet, set to the most common. Remove any previous mentions of the current URL to maximize storage
 			
             rickRolls += url;//add the page URL as a Rick Roll
 			
